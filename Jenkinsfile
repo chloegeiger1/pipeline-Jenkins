@@ -33,9 +33,6 @@ pipeline {
                 VOLUME = '$(pwd)/sources:/src'
                 IMAGE = 'cdrx/pyinstaller-linux'
             }
-             steps {
-                echo 'Stage Deliver'
-            }
             steps {
                 dir(path: env.BUILD_ID) {
                     unstash(name: 'compiled-results')
@@ -51,7 +48,7 @@ pipeline {
    stage('Branch') {
             agent any
             steps {
-                echo 'main'
+                echo 'main - webhook'
             }
         }
     }
